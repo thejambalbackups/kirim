@@ -19,12 +19,9 @@ const storage = multer.diskStorage({
 // Inisialisasi multer dengan konfigurasi penyimpanan
 const upload = multer({ storage: storage });
 
-// Setel tampilan mesin templat ke ejs (Anda dapat memilih mesin templat lain sesuai kebutuhan Anda)
-app.set('view engine', 'ejs');
-
 // Menampilkan halaman beranda dengan formulir unggah
 app.get('/', (req, res) => {
-  res.render('index');
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Menangani permintaan unggah file
